@@ -50,12 +50,15 @@ def create_clean_train_data():
     y_train.to_csv(Y_TRAIN_CLEAN_PATH,index=False)
 
 
-def load_training_data(clean=False):
+def load_training_data(clean=False,final=False):
     ''' return X_train and y_train if they exist.
     '''
     if clean:
         X_train=pd.read_csv(X_TRAIN_CLEAN_PATH)
         y_train=pd.read_csv(Y_TRAIN_CLEAN_PATH)
+    elif final:
+        X_train=pd.read_csv(X_TRAIN_FEATURIZED_PATH)
+        y_train=pd.read_csv(Y_TRAIN_FEATURIZED_PATH)
     else:
         X_train=pd.read_csv(X_TRAIN_RAW_PATH)
         y_train=pd.read_csv(Y_TRAIN_RAW_PATH)
