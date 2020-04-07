@@ -1,5 +1,6 @@
 
 import os
+import pickle
 import sys
 sys.path.append(".")
 
@@ -59,7 +60,7 @@ def transform_binary_categorical(X_train):
     X_train['PaperlessBilling']=X_train['PaperlessBilling'].map({'Yes':1,'No':0})
     return X_train
 
-def one_hot_encode_categorical_features(X_train):
+def one_hot_encode_categorical_features(X_train, save_encoder=True):
     '''  One hot encodes the categorical features, adds these to the training data, then drops the original columns.
     returns the transformed X_train Data as a pandas dataframes'''
     cols_to_one_hot_encode=X_train.dtypes[X_train.dtypes=='object'].index
@@ -75,6 +76,12 @@ def one_hot_encode_categorical_features(X_train):
     )
     X_train=X_train.assign(**ohe_df)
     X_train=X_train.drop(columns=cols_to_one_hot_encode)
+
+    if save_encoder:
+        ohe_filepath=os.path.join(SRC_FEATURES_DIRECTORY,"one_hot_encoder.pkl")
+        print("pickling one_hot encoder")
+        with open (ohe_filepath,'wb')as f:
+            pickle.dump(ohe,f)
 
     return X_train
 
