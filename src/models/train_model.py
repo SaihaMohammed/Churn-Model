@@ -67,6 +67,14 @@ def print_model_results(model,X_train,y_train):
         metric_value=np.mean(cross_val_score(model,X_train,y_train["Churn"],cv=5,scoring=metric))
         print(f"{metric}:{metric_value:.2f}")
 
+def load_model_results():
+    '''Returns a pandas DataFrame of model results from /models/model_results.csv
+    '''
+    model_results_filepath =os.path.join(MODELS_DIRECTORY,'model_results.csv')
+    df_results = pd.read_csv(model_results_filepath)
+    return df_results
+
+
 
 
 
