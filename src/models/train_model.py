@@ -6,7 +6,7 @@ sys.path.append('.')
 
 import pandas as  pd
 import numpy as np
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split,cross_val_score
 
 from src.data.make_dataset import load_training_data
 from src.localpath import *
@@ -20,19 +20,29 @@ def store_model_and_results (model,X_train,y_train):
     model_results_filepath=os.path.join(MODELS_DIRECTORY,"model_results.csv")
     model_filename=str(hash(np.random.rand())) + '.pkl'
     model_string=str(model)
-    
+    cv=5,
 
-    X,X_Validate,y,y_Validate=train_test_split(X_train,y_train,test_size=0.25,random_state=42)
-    
-    model.fit(X,y)
-    accuracy=model.score(X_Validate,y_Validate)
+    accuracy=np.mean(cross_val_score(model,X_train,y_train["Churn"],cv=5,scoring="accuracy"))
+    precision=np.mean(cross_val_score(model,X_train,y_train["Churn"],cv=5,scoring="precision"))
+    recall=np.mean(cross_val_score(model,X_train,y_train["Churn"],cv=5,scoring="recall"))
+    f1=np.mean(cross_val_score(model,X_train,y_train["Churn"],cv=5,scoring="f1"))
+    roc_auc=np.mean(cross_val_score(model,X_train,y_train["Churn"],cv=5,scoring="roc_auc"))
+   
     
     data_to_save={
     "model_filename":[model_filename],
     "model_string": [model_string],
-    "accuracy": [accuracy]
+    "accuracy": [accuracy],
+    "precision":[precision],
+    "recall":[recall],
+    "f1":[f1],
+    "roc_auc":[roc_auc],
+    
     }
     df_results=pd.read_csv(model_results_filepath)
+
+    print("fitting model before pickling")
+    model.fit(X_train,y_train)
 
     print(f"Saving model to {model_filename}")
     with open(os.path.join(MODELS_DIRECTORY,model_filename),"wb") as f:
