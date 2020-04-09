@@ -28,6 +28,7 @@ def predict(file_name):
     X = pd.read_csv(file_name)
 # clean and featurize data
     X= clean_X(X)
+    X_
 
 # make predictions
 
