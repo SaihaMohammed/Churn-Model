@@ -4,7 +4,7 @@ model_filename,model_string,accuracy,precision,recall,f1,roc_auc
                        min_impurity_decrease=0.0, min_impurity_split=None,
                        min_samples_leaf=1, min_samples_split=2,
                        min_weight_fraction_leaf=0.0, presort='deprecated',
-                       random_state=None, splitter='best')",0.7285115822367478,0.4784828318660805,0.481294964028777,0.4793323330303635,0.6606949151319109
+                       random_state=None, splitter='best')",0.7285115822367478,0.4784828318660805,0.48129496402877703,0.4793323330303635,0.6606949151319109
 1153113127975622144.pkl,"AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None, learning_rate=1.0,
                    n_estimators=50, random_state=None)",0.8000700596313178,0.6508801725502557,0.5208633093525179,0.5780535759980845,0.8449139650432042
 2232346669262199552.pkl,"RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight=None,
@@ -25,3 +25,5 @@ model_filename,model_string,accuracy,precision,recall,f1,roc_auc
                            random_state=None, subsample=1.0, tol=0.0001,
                            validation_fraction=0.1, verbose=0,
                            warm_start=False)",0.8059403758493163,0.6712950176531827,0.5158273381294963,0.5827258610019197,0.8445070747920014
+978465313962498816.pkl,"AdaBoostClassifier(algorithm='SAMME.R', base_estimator=None, learning_rate=0.6,
+                   n_estimators=50, random_state=None)",0.8008279937501792,0.6596524116306273,0.5028776978417266,0.5700426232769373,0.8451291031814799
