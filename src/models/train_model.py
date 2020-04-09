@@ -39,8 +39,6 @@ def store_model_and_results (model,X_train,y_train):
     "roc_auc":[roc_auc],
     
     }
-    df_results=pd.read_csv(model_results_filepath)
-
     print("fitting model before pickling")
     model.fit(X_train,y_train)
 
@@ -49,12 +47,14 @@ def store_model_and_results (model,X_train,y_train):
         pickle.dump(model,f)
 
     if os.path.exists(model_results_filepath):
+        df_results=pd.read_csv(model_results_filepath)
         print("writing model results to existing results csv file")
         new_results=pd.DataFrame(data_to_save)
         df_results=df_results.append(new_results,ignore_index=True)
         
     else:
         print("model results file doesnot exist -- creating new model results CSV file and writing results")
+        df_results=pd.DataFrame(data_to_save)
     df_results.to_csv(model_results_filepath,index=False)
 
 
