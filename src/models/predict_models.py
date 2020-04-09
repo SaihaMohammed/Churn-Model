@@ -9,7 +9,7 @@ import pandas as  pd
 import numpy as np
 from sklearn.model_selection import train_test_split, cross_val_score
 
-from src.data.make_dataset import load_training_data
+from src.data.make_dataset import load_training_data,clean_X
 from src.localpath import *
 
 @click.group()
@@ -20,10 +20,22 @@ def cli():
 @cli.command()
 @click.option('--file-name',type=str, required=True)
 def predict(file_name):
-    ''' Saves model evaluation mketrics to /model/mode_results.csv and
-    saves the pickled model to models.
+    ''' Predicts churn or not churn for each row of data in file_name.The file name must be comma delimited.
+    Column names dont matter,but the order of columns should be same as the order of original data
     '''
-    print(file_name)
+
+#load data
+    X = pd.read_csv(file_name)
+# clean and featurize data
+    X= clean_X(X)
+
+# make predictions
+
+
+# Print those predictions
+
+    print(X)
+
 
 
 

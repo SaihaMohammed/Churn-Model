@@ -33,6 +33,15 @@ def create_train_test_split():
     y_train.to_csv(Y_TRAIN_RAW_PATH,index=False)
     y_test.to_csv(Y_TEST_RAW_PATH,index=False)
 
+def clean_X(X):
+    ''' Apply cleaning steps to X
+    '''
+    diff_values_indx=X[X['TotalCharges']== ' '].index
+    X.loc[diff_values_indx,"TotalCharges"]=20
+    X['TotalCharges']=X['TotalCharges'].astype(float)
+
+    return X
+
 @cli.command()
 def create_clean_train_data():
     '''read Xand Y data ,cleans it and writes it back to data in interim directory 
@@ -41,9 +50,7 @@ def create_clean_train_data():
     X_train,y_train=load_training_data()
 
     print('cleaning data')
-    diff_values_indx=X_train[X_train['TotalCharges']== ' '].index
-    X_train.loc[diff_values_indx,"TotalCharges"]=20
-    X_train['TotalCharges']=X_train['TotalCharges'].astype(float)
+    X_train =clean_X(X_train)
 
     print('Writing data to interim directory')
     X_train.to_csv(X_TRAIN_CLEAN_PATH,index=False)
