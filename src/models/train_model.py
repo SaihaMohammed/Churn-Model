@@ -79,7 +79,7 @@ def load_pickled_model(model_filename):
     '''
     with open(os.path.join(MODELS_DIRECTORY,model_filename),'rb') as f:
         model=pickle.load(f)
-
+    
     return model
 
 
