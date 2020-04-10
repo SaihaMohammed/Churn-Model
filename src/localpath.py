@@ -7,8 +7,8 @@ DATA_DIRECTORY=os.path.join(ROOT_DIRECTORY,'data')
 INTERIM_DATA_DIRECTORY=os.path.join(DATA_DIRECTORY,'interim')
 RAW_DATA_DIRECTORY=os.path.join(DATA_DIRECTORY,'raw')
 PROCESSED_DATA_DIRECTORY=os.path.join(DATA_DIRECTORY,'processed')
-MODELS_DIRECTORY=os.path.join(ROOT_DIRECTORY,'models')
-
+MODELS_DIRECTORY = os.path.join(ROOT_DIRECTORY,'models')
+REPORTS_DIRECTORY = os.path.join(ROOT_DIRECTORY,'reports')
 #File paths - Raw data
 RAW_DATA_PATH= os.path.join(RAW_DATA_DIRECTORY,"WA_Fn-UseC_-Telco-Customer-Churn.csv")
 

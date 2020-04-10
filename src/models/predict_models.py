@@ -14,8 +14,7 @@ from src.data.make_dataset import load_training_data,clean_X
 from src.localpath import *
 from src.models.train_model import load_pickled_model
 
-PICKLED_MODEL_FILENAME="978465313962498816.pkl"
-
+PICKLED_MODEL_FILENAME = '1401167362936023296.pkl' 
 
 @click.group()
 def cli():
