@@ -37,7 +37,7 @@ def predict(file_name):
 
 # Print those predictions
 
-    print(X)
+    print(X.columns)
 
 
 
