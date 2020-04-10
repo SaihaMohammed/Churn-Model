@@ -42,10 +42,10 @@ The following heatmap shows the correlation between the features after OneHot En
 * Additionally, these customer attributes were correlated with churn
     * Having Multiple lines
     * Paying with an electronic check
-    * having a phone service
+    * Having a phone service
     * Having streaming TV
     * Having paper less billing
-    * having fiber optic internet service
+    * Having fiber optic internet service
 * And these are the customer attributes that were negatively correlated with churn (correlated with customer retention)
     * Having Online Security
     * Having no internet Service(streming movies)
