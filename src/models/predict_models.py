@@ -22,30 +22,38 @@ def cli():
     pass
 
 
-@cli.command()
-@click.option('--file-name',type=str, required=True)
-def predict(file_name):
+
+def predict(file_name,proba=False):
     ''' Predicts churn or not churn for each row of data in file_name.The file name must be comma delimited.
     Column names dont matter,but the order of columns should be same as the order of original data
     '''
 
-#load data
+    #load data
     X = pd.read_csv(file_name)
-# clean and featurize data
-    X= clean_X(X)
-    X=featurize_X(X,predict=True)
-#load model
+    # clean and featurize data
+    X = clean_X(X)
+    X = featurize_X(X,predict=True)
+    #load model
     model=load_pickled_model(PICKLED_MODEL_FILENAME)
     
-# make predictions
-    predictions=model.predict(X)
+    # make predictions
+    if proba:
+        predictions=model.predict_proba(X)[:,1]
+    else:
+        predictions=model.predict(X)
 
-# Print those predictions
+    # return those predictions
+    return predictions
 
+
+@cli.command()
+@click.option('--file-name',type=str, required=True)
+def click_predict(file_name):
+    ''' Predicts churn or not churn for each row of data in file_name.The file name must be comma delimited.
+    Column names dont matter,but the order of columns should be same as the order of original data
+    '''
+    predictions=predict(file_name)
     print(predictions)
-
-
-
 
 
 
