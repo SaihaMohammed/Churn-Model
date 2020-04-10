@@ -9,7 +9,8 @@ too high and we want a way (a)  predict which customers are going to leave, and 
 
 If we can predict which customers are going to leave us, we could offer them some special benefits and ensure they get good customer service . This might encourage them to stay.
 
-Also, if we are able to understand thye underlying factors that cause customers to leave, then we can fix those problems and create more value and better experience for  customers.
+Also, if we are able to understand the underlying factors that cause customers to leave, then we can fix those problems and create more value and better experience for  customers.
+
 
 ## Outline of the Solution
 
@@ -20,6 +21,16 @@ Also, if we are able to understand thye underlying factors that cause customers 
     3. Dropped highly correlated features using a cut off of VIF = 10.
 * We experimented with different Machine Learning models, and settled using AdaBoost model.
 * After trying various Hyperparameter values, we ended up using default scikit values except for learning_rate which we set to 0.6 and n_estimators = 50.
+
+## EDA
+Explored the data and plotted the distribution of the target varible and numerical attributes
+![Churn](reports/TargetDist.png)
+
+The following heatmap shows the correlation between the features after OneHot Encoding
+![Heatmap](reports/heatmap.png)
+
+
+
 
 ## Main results
 * The following are the Partial Dependence plots for Tenure, having MultipleLines, and Online security
