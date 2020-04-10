@@ -20,10 +20,10 @@ Also, if we are able to understand the underlying factors that cause customers t
     2. Transformed categorical features into binary 0 and 1 features using one-hot-encoding.
     3. Dropped highly correlated features using a cut off of VIF = 10.
 * We experimented with different Machine Learning models, and settled using AdaBoost model.
-* After trying various Hyperparameter values, we ended up using default scikit values except for learning_rate which we set to 0.6 and n_estimators = 50.
+* Optimized the model using Random Search. The best hyperparameters for the AdaBoost model are 'n_estimators': 154, 'learning_rate': 0.2
 
 ## EDA
-Explored the data and plotted the distribution of the target varible and numerical attributes
+Explored the data and the following plot shows the distribution of the target varible and numerical attributes
 ![Churn](reports/TargetDist.png)
 
 The following heatmap shows the correlation between the features after OneHot Encoding
@@ -48,12 +48,12 @@ The following heatmap shows the correlation between the features after OneHot En
     * Having fiber optic internet service
 * And these are the customer attributes that were negatively correlated with churn (correlated with customer retention)
     * Having Online Security
-    * Having no internet Service(streming movies)
+    * Having no internet Service(streaming movies)
     * Having a one year or two year contract
     
 ## Exaluation of model on Test data
 
-We evaluated the model on test data and got a ROC AUC score of 0.859. This leads us to believe that our model will generalize well for future incoming data.
+We evaluated the model on test data and got a ROC AUC score of 0.8614. This leads us to believe that our model will generalize well for future incoming data.
 
 ## References
 
