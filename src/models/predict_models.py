@@ -12,6 +12,10 @@ from src.features.build_features import featurize_X
 
 from src.data.make_dataset import load_training_data,clean_X
 from src.localpath import *
+from src.models.train_model import load_pickled_model
+
+PICKLED_MODEL_FILENAME="978465313962498816.pkl"
+
 
 @click.group()
 def cli():
@@ -30,14 +34,15 @@ def predict(file_name):
 # clean and featurize data
     X= clean_X(X)
     X=featurize_X(X,predict=True)
+#load model
+    model=load_pickled_model(PICKLED_MODEL_FILENAME)
     
-
 # make predictions
-
+    predictions=model.predict(X)
 
 # Print those predictions
 
-    print(X.columns)
+    print(predictions)
 
 
 
