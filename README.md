@@ -7,7 +7,7 @@ too high and we want a way (a)  predict which customers are going to leave, and 
 
 ## The value of problem being solved
 
-If we can predict which customers are going to leave us, we could offer them some special benefits and ensure they get good customer service . This might encourage them to stay.
+If we can predict which customers are going to leave us, we could offer them some special benefits and ensure they get good customer service. This might encourage them to stay.
 
 Also, if we are able to understand the underlying factors that cause customers to leave, then we can fix those problems and create more value and better experience for  customers.
 
@@ -50,7 +50,15 @@ The following heatmap shows the correlation between the features after OneHot En
     * Having Online Security
     * Having no internet Service(streming movies)
     * Having a one year or two year contract
-    * 
+    
 ## Exaluation of model on Test data
 
 We evaluated the model on test data and got a ROC AUC score of 0.859. This leads us to believe that our model will generalize well for future incoming data.
+
+## References
+
+* [Cookiecutter Data Science - A logical, reasonably standardized, but flexible project structure for doing and sharing data science work](https://drivendata.github.io/cookiecutter-data-science/)
+* [OneHot Encoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)
+* [Multi Collinearity - Variance Inflation Factor (VIF)](https://www.statsmodels.org/0.6.1/generated/statsmodels.stats.outliers_influence.variance_inflation_factor.html)
+* [Random Search Hyperparameter Tuning](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html)
+* [AdaBoost Classifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html)
