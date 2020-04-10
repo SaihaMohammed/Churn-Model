@@ -14,7 +14,7 @@ Also, if we are able to understand the underlying factors that cause customers t
 
 ## Outline of the Solution
 
-* We cleaned the dataset by imputing minimum value that was 20 for missing TotalCharges values(Though there were just 8 that were missing).
+* We cleaned the dataset by imputing minimum value that was 20 for missing TotalCharges values (though there were just 8 that were missing).
 * We featurized the dataset by:
     1. Dropping the customer ID Column.
     2. Transformed categorical features into binary 0 and 1 features using one-hot-encoding.
