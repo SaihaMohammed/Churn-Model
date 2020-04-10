@@ -24,8 +24,8 @@ def featurize_X(X,predict=False):
     '''
     X= drop_customer_id(X)
     X= transform_binary_categorical(X)
-    X=one_hot_encode_categorical_features(X,predict=predict)
-    X=drop_high_vif_features(X)
+    X= one_hot_encode_categorical_features(X,predict=predict)
+    X= drop_high_vif_features(X,predict=predict)
 
     return X
 
@@ -91,21 +91,23 @@ def one_hot_encode_categorical_features(X_train, save_encoder=True,predict=False
             pickle.dump(ohe,f)
 
     return X_train
+
+
+    
 def drop_high_vif_features(X_train,predict=False):
     '''drops columns with vif greater than 10
     '''
     
-    dropped_cols_pickle_filepath=os.path.join(SRC_FEATURES_DIRECTORY,"cols-to-drop.pkl")
     if predict:
-        print("loading columns to drop")
+        dropped_cols_pickle_filepath=os.path.join(SRC_FEATURES_DIRECTORY,"cols-to-drop.pkl")
+        # import pdb;pdb.set_trace()
         with open(dropped_cols_pickle_filepath,"rb") as f:
             cols_to_drop=pickle.load(f)
-        X_train=X_train.drop(columns=[ cols_to_drop])
-
+        X_train=X_train.drop(columns=cols_to_drop)
     else:
         finished=False
         cols_to_drop=[]
-    
+        
         while not finished:
             vifs=[variance_inflation_factor(X_train.values,i) for i in range(X_train.shape[1])]
             high_vifs=sorted(zip (X_train.columns,vifs),key=lambda x: x[1], reverse=True)
