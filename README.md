@@ -42,4 +42,4 @@ Also, if we are able to understand thye underlying factors that cause customers 
     * 
 ## Exaluation of model on Test data
 
-We evaluated the model on test data and got a ROC AUC score of 0.859.This leads us to believe that our model will generalize well for future incoming data.
+We evaluated the model on test data and got a ROC AUC score of 0.859. This leads us to believe that our model will generalize well for future incoming data.
