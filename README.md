@@ -1,4 +1,4 @@
-# Predicting Customer Churn Project
+# Predicting Customer Churn 
 
 ## The problem
 
